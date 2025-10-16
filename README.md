@@ -1,4 +1,4 @@
-# AnnotateX 🪙📊  
+# AnnotateX 
 *A Decentralized Data Labeling Protocol on Solana*  
 
 This project is a **decentralized data labeling platform** built on Solana using **Anchor & Rust**.  
