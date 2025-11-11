@@ -147,7 +147,7 @@ describe("capstone_project", () => {
       .signers([creator])
       .rpc();
 
-    console.log("✅ Task creation transaction signature:", tx);
+    console.log("Task creation transaction signature:", tx);
 
     // Verify task account state
     const taskAccountData = await program.account.taskAccount.fetch(taskAccount);
@@ -177,7 +177,7 @@ describe("capstone_project", () => {
       .signers([reviewer1])
       .rpc();
 
-    console.log("✅ Reviewer 1 initialization signature:", tx1);
+    console.log("Reviewer 1 initialization signature:", tx1);
 
     // Initialize reviewer 2
     const tx2 = await program.methods
@@ -191,7 +191,7 @@ describe("capstone_project", () => {
       .signers([reviewer2])
       .rpc();
 
-    console.log("✅ Reviewer 2 initialization signature:", tx2);
+    console.log(" Reviewer 2 initialization signature:", tx2);
 
     // Initialize reviewer 3
     const tx3 = await program.methods
@@ -205,7 +205,7 @@ describe("capstone_project", () => {
       .signers([reviewer3])
       .rpc();
 
-    console.log("✅ Reviewer 3 initialization signature:", tx3);
+    console.log(" Reviewer 3 initialization signature:", tx3);
 
     // Verify reviewer account state
     const reviewAccountData1 = await program.account.reviewAccount.fetch(reviewAccount1);
@@ -232,7 +232,7 @@ describe("capstone_project", () => {
       .signers([contributor1])
       .rpc();
 
-    console.log("✅ Contribution 1 submission signature:", tx1);
+    console.log(" Contribution 1 submission signature:", tx1);
 
     // Submit contribution 2
     const tx2 = await program.methods
@@ -247,7 +247,7 @@ describe("capstone_project", () => {
       .signers([contributor2])
       .rpc();
 
-    console.log("✅ Contribution 2 submission signature:", tx2);
+    console.log("Contribution 2 submission signature:", tx2);
 
     // Verify contribution account state
     const contributionData1 = await program.account.contributionAccount.fetch(contributionAccount1);
@@ -276,7 +276,7 @@ describe("capstone_project", () => {
       .signers([reviewer1])
       .rpc();
 
-    console.log("✅ Reviewer 1 vote signature:", tx1);
+    console.log(" Reviewer 1 vote signature:", tx1);
 
     // Reviewer 2 approves contribution 1
     const tx2 = await program.methods
@@ -292,7 +292,7 @@ describe("capstone_project", () => {
       .signers([reviewer2])
       .rpc();
 
-    console.log("✅ Reviewer 2 vote signature:", tx2);
+    console.log("Reviewer 2 vote signature:", tx2);
 
     // Reviewer 3 rejects contribution 1
     const tx3 = await program.methods
@@ -308,7 +308,7 @@ describe("capstone_project", () => {
       .signers([reviewer3])
       .rpc();
 
-    console.log("✅ Reviewer 3 vote signature:", tx3);
+    console.log("Reviewer 3 vote signature:", tx3);
 
     // Verify vote account state
     const voteData1 = await program.account.voteAccount.fetch(voteAccount1);
@@ -336,7 +336,7 @@ describe("capstone_project", () => {
       .signers([creator])
       .rpc();
 
-    console.log("✅ Finalization signature:", tx);
+    console.log("Finalization signature:", tx);
 
     // Verify contribution status changed
     const contributionData = await program.account.contributionAccount.fetch(contributionAccount1);
@@ -376,7 +376,7 @@ describe("capstone_project", () => {
       
       assert.fail("Should have failed with wrong creator");
     } catch (error) {
-      console.log("✅ Correctly prevented unauthorized finalization");
+      console.log(" Correctly prevented unauthorized finalization");
     }
   });
 });
@@ -386,12 +386,12 @@ async function airdrop(connection, address: PublicKey, amount: number) {
     address,
     amount * LAMPORTS_PER_SOL
   );
-  console.log("✍🏾 Airdrop Signature: ", airdrop_signature);
+  console.log(" Airdrop Signature: ", airdrop_signature);
 
   let confirmedAirdrop = await confirmTransaction(connection, airdrop_signature, "confirmed");
 
-  console.log(`🪂 Airdropped ${amount} SOL to ${address.toBase58()}`);
-  console.log("✅ Tx Signature: ", confirmedAirdrop);
+  console.log(`Airdropped ${amount} SOL to ${address.toBase58()}`);
+  console.log(" Tx Signature: ", confirmedAirdrop);
 
   return confirmedAirdrop;
 }
